@@ -1,0 +1,24 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia - ADD New Entry
+{% endblock %}
+
+{% block body %}
+    <h1>Add New Title</h1>
+    <form class="form" action="{% url 'add' %}" method="post">
+      {% csrf_token %}
+      <table class="table">
+        <tr>
+          <td>Title</td>
+          <td><input type="text" name="title" class="col-md-4 form-control" required value="{{ title }}"></td>
+        </tr>
+        <tr>
+          <td>Content</td>
+          <td><textarea name="content" cols="80" rows=7 class="form-control" required>{{ content }}</textarea></td>
+        </tr>
+        <tr>
+          <td><input type="submit" class="form-control btn-warning"></td>
+      </table>
+    </form>
+{% endblock %}
